@@ -1,0 +1,12 @@
+<%= form_with(model: [ @main, @main.facts.build ], local: true) do |form| %>
+
+<p>
+  <%= form.label :fact %><br>
+  <%= form.text_field :tip %>
+</p>
+
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>
