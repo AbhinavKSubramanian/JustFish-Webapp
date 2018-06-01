@@ -1,0 +1,23 @@
+<%= form_with(model: @main, local: true) do |form| %>
+<fieldset class="catwrap">
+	<legend class="legend">EDIT CONTACT INFO</legend>
+<br>
+<div><%= form.text_field :shop,  :placeholder => "ENTER CONTACT NAME HERE", :class => "pdtnametxt" %>
+</div>
+<br>
+<div><%= form.text_field :contact_mail,  :placeholder => "ENTER CONTACT EMAIL ID HERE", :class => "pdtnametxt" %>
+</div>
+<br>
+<div><%= form.text_field :contact_no,  :placeholder => "ENTER CONTACT NUMBER HERE", :class => "pdtnametxt" %>
+</div>
+<br>
+<div><%= form.text_area :address,  :placeholder => "ENTER CONTACT ADDRESS HERE", :class => "addressfield" %>
+</div>
+<div class="productback">
+	<%= form.submit :SAVE, :class => "createbtn" %>
+</div>
+<div class="productback">
+		<%= button_to 'Back to Main page', root_path, :method => "get", :class => "createbtn" %>
+</div>
+<% end %>
+</fieldset>

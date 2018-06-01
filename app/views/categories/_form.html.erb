@@ -1,0 +1,16 @@
+<fieldset class="catwrap">
+	<legend class="legend">NEW CATEGORY</legend>
+	<div class="newcat">
+		<%= form_with(model: @category, local: true) do |form| %>
+			<div>
+				<%= form.text_field :catname,  :placeholder => "ENTER NEW CATEGORY HERE", :class => "pdtnametxt" %>
+			</div>
+			<div class="productback">
+				<%= form.submit :SAVE, :class => "createbtn" %>
+			</div>
+		<% end %>
+		<div class="productback">
+			<%= button_to 'Back to Main page', root_path, :method => "get", :class => "createbtn" %>
+		</div>
+	</div>
+</fieldset>

@@ -1,0 +1,145 @@
+// Place all the styles related to the Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+table.categories {
+    width: 100%;
+    text-align: center;
+    font-family: 'Viga';
+}
+
+.category2 {
+	width: 100%;
+	position: relative;
+}
+
+table.categories th {
+    width: 100%;
+    padding: 0;
+}
+
+
+.category {
+	font-family: 'Viga';
+	width: 100%;
+	word-wrap: break-word;
+}
+
+.categorylogin {
+  font-family: 'Viga';
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.a123 {
+	display: inline-block;
+  padding: 0.5vw 0 0.5vw 0;
+	width: 22.5%;
+	margin: auto;
+}
+
+
+.btncls {
+	width: 100%;
+	border: none;
+	border: 1px solid lightgray;
+	border-radius: 4px;
+	padding: 4vw 0.1vw 4vw 0.1vw;
+	background: none;
+	font-family: 'Viga';
+	font-size: 2vw;
+	color: white;
+	text-decoration: none;
+	text-shadow: 1px 0 blue, 0 1px blue, -1px 0 blue, 0 -1px blue, 0 0 4px blue;
+	text-transform: uppercase;
+}
+
+.btncls:hover {
+	border: 1px solid gold;
+	background: rgba(100, 100, 100, 0.8);
+	cursor: pointer;
+}
+
+.btncls1 {
+  width: 100%;
+  border: none;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 1vw 0.1vw 1vw 0.1vw;
+  background: none;
+  font-family: 'Viga';
+  font-size: 1.8vw;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 0 red, 0 1px red, -1px 0 red, 0 -1px red, 0 0 4px red;
+  text-transform: uppercase;
+}
+
+.btncls1:hover {
+  border: 1px solid gold;
+  background: rgba(100, 100, 100, 0.8);
+  cursor: pointer;
+}
+
+.newcat {
+	margin-top: 10vw;
+}
+
+.prev3{
+  cursor: pointer;
+  position: absolute;
+  width: 4%;
+  top: 50%;
+  height: auto;
+  margin-top: -5.6vw;
+  left: 0;
+  padding: 4.2vw 0 4.2vw 0;
+  color: white;
+  font-weight: bold;
+  transition: 0.6s ease;
+  border-radius: 0 6px 6px 0;
+  border-right: 1px solid lightgray;
+}
+
+
+/* Position the "next button" to the right */
+.next3 {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 4%;
+  margin-top: -5.6vw;
+  right: 0;
+  padding: 4.2vw 0 4.2vw 0;
+  color: white;
+  font-weight: bold;
+  transition: 0.6s ease;
+  border-radius: 6px 0 0 6px;
+  border-left: 1px solid lightgray;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev3:hover, .next3:hover {
+  border: 1px solid white;
+  color: black;
+  box-shadow: 0px 0px 4px red;
+  text-shadow: 1px 0 white, -1px 0 white, 0 1px white, 0 -1px white;
+  background: rgba(100, 100, 100, 0.8);
+}
+
+.dot1 {
+  cursor: pointer;
+  height: 1vw;
+  width: 2vw;
+  background-color: rgba(20, 20, 20, 0.5);
+  border-radius: 8px;
+  display: inline-block;
+  padding: 0 2vw 0 1vw;
+  margin-top: 4px;
+  transition: background-color 0.6s ease;
+}
+
+.active1, .dot1:hover {
+  background-color: white;
+}

@@ -1,0 +1,14 @@
+<%= form_with(model: [ @main, @main.newarrivals.build ], local: true) do |form| %>
+
+<div>
+	<%= form.text_field :name, :placeholder => "ENTER PRODUCT NAME HERE", :class => "pdtnametxt" %>
+</div>
+<div>
+  <%= form.text_area :details, :placeholder => "ENTER DETAILS HERE", :class => "pdtdescptxt" %>
+</div>
+
+<div>
+  <%= form.submit :CREATE, :class => "createbtn" %>
+</div>
+
+<% end %>

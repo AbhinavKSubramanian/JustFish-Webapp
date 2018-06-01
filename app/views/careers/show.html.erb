@@ -1,0 +1,26 @@
+<div class="catwrap">
+	<fieldset style>
+		<legend class="legend">
+  			<%= @career.career_name %>
+  		</legend>
+ 		<div>
+			<%= @career.career_descp %>
+		</div>
+		<br>
+	</fieldset>
+
+	<div class="productback">
+		<%= button_to 'Back to Main page', root_path, :method => "get", :class => "createbtn" %>
+	</div>
+
+	<% if user_signed_in? %>
+	<% if current_user.email =="justfish@gmail.com" %>
+	<div class="productback">
+		<%= button_to 'Edit Career Info', edit_career_path(@career), :method => "get", :class => "createbtn" %>
+	</div>
+	<div class="categorydeleter">
+		<%= button_to 'Delete Career Info', career_path(@career), method: :delete, data: { confirm: 'Are you sure?'}, :class => "createbtn" %>
+	</div>
+	<% end %>
+	<% end %>
+</div>

@@ -1,31 +1,44 @@
+<% if user_signed_in? %>
+<% if current_user.email=="justfish@gmail.com" %>
+<%= render 'signedhome' %>
+<% end %>
+
+<% else %>
 <!-- JUST FISH LOGO -->
 
 <div class="wrap intro">
-  <img src="/assets/justfish2.jpg" style="width:100%" >
+	<div class="slideshow-container">
+      <%= button_to "Log in",new_user_session_path, :method => "get", :class => "login"  %>
+    </div>
+    	<div class="logo fade0">
+        	<img src="/assets/jf1.jpg" style="width:100%" >
+    	</div>
+    	<div class="logo fade0">
+        	<img src="/assets/jf2.jpg" style="width:100%" >
+    	</div>
+    	<div class="logo fade0">
+        	<img src="/assets/jf3.jpg" style="width:100%" >
+    	</div>
+    </div>
 </div>
 
 <!-- IMAGE SLIDER -->
 
 <div class="wrap imgshow">
   <div class="slideshow-container">
-
     <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
         <img src="/assets/j1.jpg" style="width:100%" >
-      <div class="text">Caption Text</div>
     </div>
 
     <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
       <img src="/assets/j2.jpg" style="width:100%" >
-      <div class="text">Caption Two</div>
     </div>
 
     <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
       <img src="/assets/j3.jpg" style="width:100%" >
-      <div class="text">Caption Three</div>
     </div>
+
+<!-- Side buttons to change image -->
 
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -33,77 +46,256 @@
   </div>
 </div>
 
-<!-- DOTS FOR SLIDER -->
-
-
-<div class="wrap stretch">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
 
 <!-- FACTS, ABOUT US, NEW ARRIVALS -->
 
-<div class="wrap mid">
-<br>
-<table class="main">
-<tr>
-    <th>DID YOU KNOW?</th>
-    <th>ABOUT US</th>
-    <th>NEW ARRIVALS</th>
-</tr>
-</table>
 
-<table class="main">
-<tr>
-<td>
-    <table class="inner">
-    <%@main.facts.each do |fact| %>     
-       <tr>
-         <th>
-           <div>
-             <span class="deleter"><%= fact.tip %></span>
-             <span><%= button_to 'delete', [fact.main, fact], method: :delete, data: { confirm: 'ARE YOU SURE?' }, :class => "delbtn" %></span>
-           </div>
-         </th>
-       </tr>
-     <% end %>
-     <tr>
-       <th><%= render 'facts/form' %></th>
-     </tr>
-    </table>
-</td>
-<td>
-    <table class="inner">
-    <tr><th>blah blah blah</th></tr>
-    </table>
-</td>
-<td>
-    <table class="inner">
-    <tr><th>Blah blah blah</th></tr>
-    </table>
-</td>
-</tr>
-</table>
-<br> 
+<div class="wrap mid">
+
+<!-- DOTS FOR IMAGE GALLERY SLIDER -->
+
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <br>
+  <br>
+
+<!-- HEADINGS: FACTS, ABOUT and NEW ARRIVALS -->
+
+  <table class="main">
+    <tr>
+      <th>
+        DID YOU KNOW?
+      </th>
+      <th>
+        ABOUT US
+      </th>
+      <th>
+        NEW ARRIVALS
+      </th>
+    </tr>
+  </table>
+
+  <!-- INNER TABLES CONTAING DATA -->
+
+  <table class="main">
+    <tr>
+      <td>
+
+        <!-- DID YOU KNOW COLUMN -->
+
+        <table class="inner">
+          <tr>
+            <th>
+              <%@main.facts.each do |fact| %> 
+                <div class="slideshow-container">
+                  <div class="diduknow fade">
+                    <span class="factsandarrivals">
+                      <%= fact.tip %>
+                    </span>
+                    <span><a class="prev1" onclick="plusfacts(-1)">&#10094;</a>
+                          <a class="next1" onclick="plusfacts(1)">&#10095;</a>
+                    </span>
+                  </div>
+                </div>
+              <% end %>
+            </th>
+          </tr>
+        </table>
+      </td>
+      <td>
+
+        <!-- ABOUT US COLUMN -->
+
+        <table class="inner">
+          
+            <% i=0 %>
+            <% @main.abouts.each do %>
+              <% i=i+1 %>
+            <% end %>
+
+            <% if i==0 %>
+              <%= render 'abouts/form' %>
+            <% else %>
+              <% @main.abouts.each do |about| %>
+                <tr>
+                  <th>     
+                    <div class="about">
+                      <%= about.data %>
+                    </div>
+                  </th>
+                </tr>
+              <% end %>
+            <% end %>
+          
+        </table>
+      </td>
+      <td>
+
+        <!-- NEW ARRIVALS COLUMN -->
+
+        <table class="inner">
+          <% @main.newarrivals.each do |newarrival| %>
+            <div class="slideshow-container">
+              <div class="newarrival fade">       
+                <span class="factsandarrivalsheading">
+                  <%= newarrival.name %>
+                </span>
+                <span class="factsandarrivals">
+                  <%= newarrival.details %>
+                </span>
+                <span><a class="prev1" onclick="plusarrival(-1)">&#10094;</a>
+                      <a class="next1" onclick="plusarrival(1)">&#10095;</a>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
 </div>
 
 <!-- PRODUCTS SLIDER -->
 
 <div class="wrap prod">
-<br>
-<table class="products">
-<tr>
-<th colspan="20">OUR PRODUCTS</th>
-</tr>
-<tr>
-<td>blah1</td>
-<td>blah2</td>
-<td>blah3</td>
-<td>blah4</td>
-</tr>
-</table>
-<br>
+  <br>
+  <table class="categories">
+    <tr>
+      <th>
+        <div class="ourpdt">OUR PRODUCTS</div>
+      </th>
+    </tr>
+  </table>
+  <br>
+  <div class="category2">
+        <% @categories = Category.all %>
+        <% i=0 %>
+        <% j=0 %>
+        <% @categories.each do |category| %>
+          <% if i%4==0 %>
+          <% j=j+1 %>
+          <div class="category">
+          <% end %>
+            <% i=i+1 %>
+            <span class="a123">
+            <%= button_to category.catname, category_path(category), :method => "get", :class => "btncls" %>
+            </span>
+          <% if i%4==0 %>
+            <% i=0 %>
+            </div>
+          <% end %> 
+          <a class="prev3" onclick="pluscategory(-1)">&#10094;</a>
+          <a class="next3" onclick="pluscategory(1)">&#10095;</a>
+        <% end %>
+        <% if i%4!=0 %>
+      </div>
+      <% end %>
+  </div>
+  <% (1..j).each do |i| %>
+  <span class="dot1" onclick="currentcategory(<%= i %>)"></span>
+  <% end %> 
+  <br>
+  <br>
 </div>
 
 
+<!-- BOTTOM SET - CONTACTS, LOCATION, CAREERS -->
+
+  <div class="wrap bottom">
+  <br>
+  <table class="bottomtable">
+    <tr>
+      <th>
+          <div class="heading">CONTACT US</div>
+      </th>
+      <th>
+        <div class="heading">LOCATE US</div>
+      </th>
+      <th>
+        <div class="heading">CAREERS</div>
+      </th>
+    </tr>
+    <tr>
+      <td>
+
+        <!-- CONTACT DETAILS -->
+
+        <div class="btmcontents1">
+          <%= @main.shop %>
+        </div>
+        <br>
+          <div class="btmcontents">
+            <%= image_tag("contactmail.png", class: :contactset) %>
+            <%= @main.contact_mail %>
+        </div>
+        <br>
+        <div class="btmcontents">
+          <%= image_tag("phone.png", class: :contactset) %>
+          <%= @main.contact_no %>
+          </div>
+        <br>
+        <div class="btmcontents">
+          <%= image_tag("mapsymbol.png", class: :contactset) %>
+          <%= simple_format @main.address %>
+        </div>
+      </td>
+
+      <!-- MAP -->
+
+      <td>
+        <div class="btmcontents"><%= link_to image_tag("map.jpg", class: :location), "https://www.google.co.in/maps/place/Just+Fish/@10.0695466,76.3308314,20.19z/data=!4m5!3m4!1s0x3b080e81fbeafe9b:0x10ba505a574cde92!8m2!3d10.0694962!4d76.3308634", target: :_blank %>
+        </div>
+      </td>
+
+      <!-- CAREER LIST -->
+
+      <td>
+        <div class="container">
+        <% @careers = Career.all %>
+        <% i=0 %>
+        <% @careers.each do |career| %>
+
+          <!-- OPENING THE DIV BOX TO START SHOWING THREE ELEMENTS EACH -->
+
+          <% if i%3==0 %>
+            <div class="career1">
+          <% end %>
+          <% i=i+1 %>
+          <%= button_to career.career_name, career_path(career), :method => "get", :class => "careerbtn" %>
+          
+          <!-- PROVIDING LINE BREAKS TO SEPARATE CAREER NAMES -->
+
+          <% if i%3!=0 %>
+            <br>
+          <% end %>
+
+          <!-- CLOSING THE DIV BOX WHEN THREE ELEMENTS ARE FILLED -->
+
+          <% if i%3==0 %>
+            </div>
+          <% end %>
+
+          <!-- BUTTONS TO SLIDE THE CAREER LIST -->
+
+          <a class="prev2" onclick="pluscareer(-1)">&#10094;</a>
+          <a class="next2" onclick="pluscareer(1)">&#10095;</a>
+        <% end %>
+
+      <!-- PROVIDING LINK TO CREATE NEW CAREER INFO -->
+      
+      </div>
+      <br>
+   </td>
+ </tr>
+   </table>
+   <br>
+  <br>
+  <br>
+  </div>
+
+</div>
+
+<% end %>

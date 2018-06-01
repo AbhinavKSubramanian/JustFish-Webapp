@@ -1,0 +1,46 @@
+<div class="catwrap">
+	<fieldset style>
+		<legend class="legend">
+  			LIST OF <%= @category.catname %>
+  		</legend>
+  		<ol class="d">
+		<% @category.products.each do |product| %>
+			<div class="productsrow">
+				<li><div class="productname">
+					<%= product.pdtname %>
+				</div>
+				<div class="productdescp">
+					<%= product.pdtdescp %>
+				</div>
+				<% if user_signed_in? %>
+				<% if current_user.email =="justfish@gmail.com" %>
+				<%= link_to 'Delete', [product.category, product],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+               <% end %>
+               <% end %>
+				</li>
+			</div>
+			<br>
+		<% end %>
+		</ol>
+	</fieldset>
+
+	<div class="productback">
+		<%= button_to 'Back to Main page', root_path, :method => "get", :class => "createbtn" %>
+	</div>
+	<% if user_signed_in? %>
+	<% if current_user.email =="justfish@gmail.com" %>
+	<div class="productback">
+		<%= button_to 'Edit Category', edit_category_path(@category), :method => "get", :class => "createbtn" %>
+	</div>
+	<div class="categorydeleter">
+		<%= button_to 'Delete Category', category_path(@category), method: :delete, data: { confirm: 'Are you sure?'}, :class => "createbtn" %>
+	</div>
+
+	<div class="productrender">
+		<%= render 'products/form' %>	
+	</div>
+	<% end %>
+	<% end %> 
+</div>

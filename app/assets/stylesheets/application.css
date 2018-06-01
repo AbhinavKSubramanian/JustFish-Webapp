@@ -16,15 +16,47 @@
 
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+
+
+.fade0 {
+  -webkit-animation-name: ease;
+  -webkit-animation-duration: 3s;
+  animation-name: ease;
+  animation-duration: 3s;
+  transition: 0.6s ease;
+}
+
+@-webkit-keyframes fade0 {
+  from {opacity: 0.6} 
+  to {opacity: 1}
+}
+
+@keyframes fade0 {
+  from {opacity: 0.8} 
+  to {opacity: 1}
+}
+
 
 /* Slideshow container */
 .slideshow-container {
   width: 100%;
-  position: relative;
-  padding: 0px;
+  position:relative;
+  font-size: 1.2vw;
+  text-decoration: none;
 }
+
+.logo {display: none}
+img {vertical-align: middle;}
+
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+.diduknow {display: none;}
+img {vertical-align: middle;}
+
+.newarrival {display: none}
+img {vertical-align: middle;}
+
 
 /* Next & previous buttons */
 .prev, .next {
@@ -78,7 +110,7 @@ img {vertical-align: middle;}
   cursor: pointer;
   height: 15px;
   width: 15px;
-  background-color: #717171;
+  background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
   padding: 0px;
@@ -87,24 +119,28 @@ img {vertical-align: middle;}
 }
 
 .active, .dot:hover {
-  background-color: #bbb;
+  background-color: black;
 }
 
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 2s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 2s;
+  -webkit-animation-name: fade-out;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: 0.4} 
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: 0.4} 
   to {opacity: 1}
 }
 
@@ -113,4 +149,103 @@ img {vertical-align: middle;}
   .prev, .next,.text {font-size: 11px}
 }
 
+.prev1 {
+  cursor: pointer;
+  position: absolute;
+  width: 7.5%;
+  top: 50%;
+  height: auto;
+  margin-top: -6.5vw;
+  left: 0;
+  padding: 6vw 0 6vw 0;
+  color: black;
+  font-weight: bold;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
 
+
+/* Position the "next button" to the right */
+.next1 {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 7.5%;
+  margin-top: -6.5vw;
+  right: 0;
+  padding: 6vw 0 6vw 0;
+  color: black;
+  font-weight: bold;
+  transition: 0.6s ease;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev1:hover, .next1:hover {
+  border: 1px solid gray;
+  box-shadow: 0px 0px 3px red;
+  background: lightgray;
+}
+
+.login {
+  width: 5%;
+  position: absolute;
+  text-align: center;
+  padding: 0.1vw 0.1vw 0.1vw 0.1vw;
+  font-family: 'Fresca';
+  font-size: 1.3vw;
+  font-weight: bold;
+  border: none;
+  background: none;
+  text-decoration: none;
+  border-radius: 4px;
+  background: lightgray;
+  right: 0.5vw;
+  top: 0.3vw;
+}
+
+.signup {
+  width: 5%;
+  position: absolute;
+  text-align: center;
+  padding: 0.1vw 0.1vw 0.1vw 0.1vw;
+  font-family: 'Fresca';
+  font-size: 1.3vw;
+  font-weight: bold;
+  border: none;
+  background: none;
+  text-decoration: none;
+  border-radius: 4px;
+  background: lightgray;
+  right: 6vw;
+  top: 0.3vw;
+}
+
+.signup:hover, .login:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.currentmail {
+  width: auto;
+  position: absolute;
+  text-align: center;
+  padding: 0.1vw 0.5vw 0.1vw 0.5vw;
+  font-family: 'Fresca';
+  font-size: 1.3vw;
+  font-weight: bold;
+  border: none;
+  background: none;
+  text-decoration: none;
+  border-radius: 4px;
+  background: lightgray;
+  right: 6vw;
+  top: 0.3vw;
+}
+
+.currentmail:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}

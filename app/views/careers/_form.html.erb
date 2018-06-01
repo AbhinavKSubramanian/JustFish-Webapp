@@ -1,0 +1,21 @@
+<fieldset class="catwrap">
+	<legend class="legend">NEW CAREER INFO</legend>
+	<div class="newcat">
+		<%= form_with(model: @career, local: true) do |form| %>
+			<div>
+				<%= form.text_field :career_name, :placeholder => "ENTER NEW CAREER NAME HERE", :class => "pdtnametxt" %>
+			</div>
+
+			<div>
+				<%= form.text_field :career_descp, :placeholder => "ENTER NEW CAREER DESCRIPTION HERE", :class => "pdtdescptxt"%>
+			</div>
+			<div class="productback">
+				<%= form.submit :SAVE, :class => "createbtn" %>
+			</div>
+		<% end %>
+		
+		<div class="productback">
+			<%= button_to 'Back to Main page', root_path, :method => "get", :class => "createbtn" %>
+		</div>
+	</div>
+</fieldset>

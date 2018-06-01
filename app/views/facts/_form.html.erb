@@ -1,12 +1,7 @@
 <%= form_with(model: [ @main, @main.facts.build ], local: true) do |form| %>
 
-<p>
-  <%= form.label :fact %><br>
-  <%= form.text_field :tip %>
-</p>
+<div><%= form.text_field :tip,  :placeholder => "ENTER NEW FACTS HERE", :class => "pdtnametxt" %>
+</div>
 
-<p>
-  <%= form.submit %>
-</p>
-
+<div><%= form.submit :CREATE, :class => "createbtn" %></div>
 <% end %>

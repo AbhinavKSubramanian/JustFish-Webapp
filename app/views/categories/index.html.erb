@@ -1,0 +1,11 @@
+<table class="inner">
+  <% @categories.each do |category| %>
+    <div class="slideshow-container">
+      <div class="category fade">       
+        <span class="factsandarrivals">
+          <%= category.catname %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</table>

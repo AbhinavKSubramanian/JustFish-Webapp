@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pdtname: MyString
+  pdtdescp: MyText
+  main: one
+  category: one
+
+two:
+  pdtname: MyString
+  pdtdescp: MyText
+  main: two
+  category: two

@@ -1,0 +1,167 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.catwrap {
+	border: 1px solid black;
+	margin: 0 auto;
+	text-align: center;
+	font-family: 'Salsa';
+	background-image: url('whitebg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+}
+
+.legend {
+	font-size: 6vw;
+	text-transform: uppercase;
+	font-family: 'Inika';
+	font-weight: bold;
+	text-shadow: 0 0 12px lightgreen;
+}
+
+
+.productsrow {
+	width: 100%;
+	border: 1px solid black;
+	padding: 10px 0 10px 0;
+	border-radius: 4px;
+}
+
+.productname {
+    font-size: 2.1vw; 
+    width: 40%;
+    text-align: center;
+    padding: 15px;
+    display: inline-block;
+    float:left;
+    color: black;
+    border-right: 1px solid black;
+    text-shadow: 0 0 4px blue;
+    text-transform: uppercase;
+}
+
+.productdescp {
+    font-size: 2vw;
+    font-family: 'Viga';
+    width: 60%;
+    text-align: left;
+    padding: 15px;
+    display: inline-block;
+    color: black;
+    text-shadow: 2px 0 white, -2px 0px white, 0 2px white, 0 -2px white, 0 0 4px black;
+
+}
+
+ol.d {
+    list-style-type: numeral;
+    font-size: 2.1vw;
+    color: darkred;
+}
+
+
+.productback {
+    font-size: 2vw; 
+    width: 33.33%;
+    text-align: center;
+    padding: 15px;
+    display: inline-block;
+    float:left;
+    color: black;
+    border-right: 1px solid black;
+    text-shadow: 0 0 4px blue;
+}
+
+.categorydeleter {
+    width: 33.33%;
+    text-align: left;
+    padding: 15px;
+    float:left;
+    color: black;
+    text-shadow: 0 0 4px blue;
+    display: inline-block;
+}
+
+.pdtnametxt {
+	width: 100%;
+	height: 3vw;
+	border: 2px solid black;
+	border-radius: 4px;
+	font-size: 1.8vw;
+	font-family: 'Viga';
+	text-align: center;
+	color: darkred;
+}
+
+.pdtnametxt:focus {
+	background: lightyellow;
+}
+
+.pdtnametxt:hover {
+	background: lightyellow;
+}
+
+.pdtdescptxt {
+	width: 100%;
+	height: 4vw;
+	border: 2px solid black;
+	border-radius: 4px;
+	font-size: 1.8vw;
+	font-family: 'Viga';
+	border-top: none;
+	color: darkred;
+	text-align: center;
+}
+
+.pdtdescptxt:focus {
+	background: lightyellow;
+}
+
+.pdtdescptxt:hover {
+	background: lightyellow;
+}
+
+::placeholder {
+    color: red;
+    opacity: 0.8;
+    color: black;
+    text-shadow: 0 0 3px red;
+}
+
+
+:-ms-input-placeholder { 
+    color: red;
+}
+
+::-ms-input-placeholder { 
+    color: red;
+}
+
+.createbtn {
+	width: 100%;
+	border: none;
+	padding: 0;
+	background: none;
+	font-family: 'Viga';
+	font-size: 2vw;
+	color: lightgray;
+	text-decoration: none;
+	text-shadow: 1px 0 blue, 0 1px blue, -1px 0 blue, 0 -1px blue, 0 0 12px blue;
+	text-transform: uppercase;
+}
+
+.createbtn:hover {
+	border: 1px solid gray;
+	border-radius: 8px;
+	background: rgba(60, 60, 60, 0.4);
+	cursor: pointer;
+}
+
+.productrender {
+	width: 100%;
+	padding: 10px 10px 10px 10px;
+	border-top: 1px solid black;
+	display: inline-block;
+	word-wrap: break-word;
+}
