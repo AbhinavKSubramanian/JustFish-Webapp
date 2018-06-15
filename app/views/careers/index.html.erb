@@ -1,5 +1,15 @@
+<div class="catwrap" style="position: relative">
+<fieldset>
+	
+  <legend class="prodlegend" style="font-size: 4vw; margin-left: 2vw">
+    ALL PRODUCTS
+  </legend>
+
   <% @careers.each do |career| %>
     <div class="career">
     	<%= button_to career.career_name, career_path(career), :method => "get", :class => "btncls" %>
     </div>
   <% end %>
+
+</fieldset>
+</div>

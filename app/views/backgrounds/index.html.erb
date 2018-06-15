@@ -1,0 +1,20 @@
+<div class="catwrap" style="position: relative">
+	<fieldset>
+		<legend class="prodlegend" style="font-size: 4vw; margin-left: 2vw">ALL BACKGROUND IMAGES</legend>
+			<% @backgrounds.each do |background| %>			
+				<div class="categoryindex">
+					<div style="padding-bottom: 0.5vw; min-height: 13.1vw">
+						<%= image_tag(background.backgroundimg.url, class: :productimg1) %>
+					</div>
+						
+	          		<% if user_signed_in? and current_user.email =="justfish@gmail.com" %> 
+	            		<%= link_to 'Delete', main_background_path(@main, background), method: :delete, data: { confirm: 'Are you sure?' }, :class => "dltbtn" %>
+	         		<% end %>  
+	   			</div>
+			<% end %>
+	</fieldset>
+	<div style="padding: 0.3vw">
+				<%= button_to 'Back to Main page', :back, :method => "get", :class => "createbtn" %>
+	</div>
+	<%= button_to 'HOME', root_path, :method => "get", :class => "homebtn" %>
+</div>

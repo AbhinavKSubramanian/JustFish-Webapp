@@ -1,0 +1,14 @@
+<div class="wrap mid" style="min-height: 100vh; position: relative">
+
+<div style="width: 100%; margin: 0 auto; border: 1px solid gray; padding: 0; margin-top: 2.5vw; margin-bottom: 1vw; border-radius: 4px">
+  					<div style="display:inline-block; padding: 0.5vw 0.5vw 0.5vw 0.5vw; width:49.5%; min-height: 26vw; vertical-align: top; border-right: 1px solid black"><%= link_to image_tag(@product.pdtimg.url, class: :productimg2), root_path %></div>
+  					<fieldset style="display:inline-block; width: 49.5%; border: none" >
+    				<legend class="prodlegend" style="padding: 2vw 0 0.5vw 2vw; width: 100%; border-radius: 2px;text-transform: uppercase; font-family: 'Fresca'; font-weight: bold; font-size: 4vw;min-height: 4vw; white-space: pre-wrap; word-wrap: break-word; border-bottom: 1px solid black ">&rsaquo; <%= @product.pdtname %></legend>
+    				<div style="width: 100%; text-transform: uppercase;font-family: 'Fresca';font-weight: bold; font-size: 2vw;min-height: 2.4vw; white-space: pre-wrap; word-wrap: break-word; text-align: left; padding: 0 0 0.5vw 4vw">&sdot; <%= @product.pdtdescp %></div>
+    				</fieldset>
+</div>
+	<%= button_to 'BACK', :back, :method => "get", :class => "createbtn", :style => "position: absolute; bottom: 0.5vw; left: 0" %>
+	<%= button_to 'HOME', root_path, :method => "get", :class => "homebtn", :style => "right: 23vw" %>
+    <%= button_to 'CATEGORIES', categories_path, :method => "get", :class => "catbtn", :style => "right: 0vw" %>
+    <%= button_to 'PRODUCTS', products_path, :method => "get", :class => "catbtn", :style => "right: 12vw" %>
+</div>

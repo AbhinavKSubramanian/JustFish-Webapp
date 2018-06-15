@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   resources :mains do resources :facts
                       resources :newarrivals
                       resources :abouts
+                      resources :backgrounds
+                      resources :galleries
   end
 
   resources :categories do resources :products
   end
 
   resources :careers
+  resources :products
 
   root 'mains#show'
   

@@ -19,40 +19,10 @@
 	font-family: 'Inika';
 	font-weight: bold;
 	text-shadow: 0 0 12px lightgreen;
+	text-align: left;
+	margin-left: 4vw;
 }
 
-
-.productsrow {
-	width: 100%;
-	border: 1px solid black;
-	padding: 10px 0 10px 0;
-	border-radius: 4px;
-}
-
-.productname {
-    font-size: 2.1vw; 
-    width: 40%;
-    text-align: center;
-    padding: 15px;
-    display: inline-block;
-    float:left;
-    color: black;
-    border-right: 1px solid black;
-    text-shadow: 0 0 4px blue;
-    text-transform: uppercase;
-}
-
-.productdescp {
-    font-size: 2vw;
-    font-family: 'Viga';
-    width: 60%;
-    text-align: left;
-    padding: 15px;
-    display: inline-block;
-    color: black;
-    text-shadow: 2px 0 white, -2px 0px white, 0 2px white, 0 -2px white, 0 0 4px black;
-
-}
 
 ol.d {
     list-style-type: numeral;
@@ -104,12 +74,11 @@ ol.d {
 
 .pdtdescptxt {
 	width: 100%;
-	height: 4vw;
+	height: 8vw;
 	border: 2px solid black;
 	border-radius: 4px;
 	font-size: 1.8vw;
 	font-family: 'Viga';
-	border-top: none;
 	color: darkred;
 	text-align: center;
 }
@@ -123,10 +92,13 @@ ol.d {
 }
 
 ::placeholder {
+	font-family: 'Fresca';
+	font-size: 1.5vw;
     color: red;
-    opacity: 0.8;
-    color: black;
-    text-shadow: 0 0 3px red;
+    opacity: 0.7;
+    color: rgb(40,40,40);
+    text-shadow: 0 0 0.1vw red;
+    font-style: italic;
 }
 
 
@@ -140,19 +112,18 @@ ol.d {
 
 .createbtn {
 	width: 100%;
-	border: none;
 	padding: 0;
+	border-radius: 8px;
 	background: none;
 	font-family: 'Viga';
 	font-size: 2vw;
 	color: lightgray;
 	text-decoration: none;
-	text-shadow: 1px 0 blue, 0 1px blue, -1px 0 blue, 0 -1px blue, 0 0 12px blue;
+	text-shadow: 1px 0 blue, 0 1px blue, -1px 0 blue, 0 -1px blue, 0 0 4px black;
 	text-transform: uppercase;
 }
 
 .createbtn:hover {
-	border: 1px solid gray;
 	border-radius: 8px;
 	background: rgba(60, 60, 60, 0.4);
 	cursor: pointer;
@@ -164,4 +135,159 @@ ol.d {
 	border-top: 1px solid black;
 	display: inline-block;
 	word-wrap: break-word;
+}
+
+.productimg {
+	width: 25%;
+	height: 50%;
+	padding: 0.25vw;
+	border: 1px solid black;
+	object-fit: cover;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.productsrow {
+	width: 100%;
+	border: 1px solid black;
+	padding: 0;
+	border-radius: 4px;
+}
+
+.pdtdetails {
+	width: 74%;
+	padding: 0;
+	display: inline-block;
+	text-align: left;
+}
+
+.productname {
+    font-size: 2.1vw; 
+    width: 100%;
+    text-align: left;
+    padding: 0.5vw 0 0.5vw 5vw;
+    display: inline-block;
+    color: black;
+    text-shadow: 0 0 2px crimson;
+    text-transform: uppercase;
+    border-bottom: 1px solid black;
+}
+
+.productdescp {
+    font-size: 2vw;
+    font-family: 'Viga';
+    width: 100%;
+    display: inline-block;	
+    margin-left: 0.5vw;
+    margin-top: -2vw;
+    text-align: left;
+    color: black;
+    text-shadow: 2px 0 white, -2px 0px white, 0 2px white, 0 -2px white, 0 0 4px black;
+    white-space: pre-line;
+}
+	
+.prodlegend {
+	font-size: 3vw;
+	text-transform: uppercase;
+	font-family: 'Inika';
+	font-weight: bold;
+	text-shadow: 0 0 8px lightblue;
+	text-align: left;
+}
+
+.newprod {
+	width: 70%;
+	margin: auto;
+}
+
+
+.productimg1 {
+	width: 100%;
+	height: 12.9vw;
+	border: 1px solid black;
+	object-fit: cover;
+	object-position: center;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 4px;
+}
+
+.productimg2 {
+	width: 100%;
+	border: 1px solid gray;
+	object-fit: cover;
+	object-position: center;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 4px;
+}
+
+.pdtnamebtn {
+	text-decoration: none;
+	text-decoration-color: none;
+	width: 100%;
+	min-height: 2.4vw;
+	border: 1px solid black;
+	border-radius: 2px;
+	text-transform: uppercase;
+	font-family: 'Fresca';
+	font-weight: bold;
+	font-size: 2vw;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	cursor: pointer;
+}
+
+.productimg3 {
+	width: 100%;
+	height: 11.5vw;
+	border: 1px solid black;
+	object-fit: cover;
+	object-position: center;
+	vertical-align: top;
+	border-radius: 0.4vw;
+}
+
+.productindex {
+	display:inline-block; 
+	width: 24%; 
+	border: 0.1vw solid crimson; 
+	padding: 0.5vw 0.5vw 0.5vw 0.5vw; 
+	vertical-align: top; 
+	margin: 1vw 0.25vw 1vw 0.25vw; 
+	border-radius: 4px; 
+	background: rgb(150,150,150); 
+	box-shadow: 0.3vw 0.3vw black;
+}
+
+.productindex:hover {
+	background: rgb(60,60,60);
+}
+
+.productindex:active {
+	box-shadow: 0.1vw 0.1vw black;
+    transform: translate(0.2vw,0.2vw);
+}
+
+.productindex:hover .productimg1{
+	opacity: 0.7;
+}
+
+.productindex:hover .pdtnamebtn1{
+	background: gold;
+}
+
+.pdtnamebtn1 {
+	text-decoration: none;
+	text-decoration-color: none;
+	width: 100%;
+	min-height: 2.4vw;
+	border: 1px solid black;
+	border-radius: 2px;
+	text-transform: uppercase;
+	font-family: 'Fresca';
+	font-weight: bold;
+	font-size: 2vw;
+	word-wrap: break-word;
+	cursor: pointer;
 }

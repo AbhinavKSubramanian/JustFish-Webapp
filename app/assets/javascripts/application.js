@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require popper
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 var slideIndex=0;
@@ -39,7 +38,7 @@ var careerlength = document.getElementsByClassName("career1");
 var categoryindex=0;
 var categorylength = document.getElementsByClassName("category");
 
-$(document).ready(function() {
+window.onload = function() {
 
 showSlides();
 
@@ -135,7 +134,7 @@ function categoryshow() {
 }
 
 
-});
+};
 
 
 function plusSlides(n) {
@@ -242,3 +241,6 @@ function categoryshow(n) {
   categorylength[categoryindex-1].style.display = "block";
   dots1[categoryindex-1].className += " active1";
 }
+
+
+   

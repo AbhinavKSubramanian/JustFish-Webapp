@@ -1,0 +1,38 @@
+<div class="catwrap" style="position: relative">
+<fieldset>
+	
+  <legend class="prodlegend" style="font-size: 4vw; margin-left: 2vw">
+    ALL NEW ARRIVALS
+  </legend>
+
+  <% if !@newarrivals.blank? %>
+      <% @newarrivals.each do |newarrival| %>
+        <%= link_to main_newarrival_path(@main, newarrival) do %>
+          <div class="productindex" style="position: relative">
+            <div style="padding-bottom: 0.5vw; min-height: 13.1vw">
+              <%= image_tag(newarrival.newarrivalimg.url, class: :productimg1) %>
+            </div>
+            <button class="pdtnamebtn1">
+              <%= newarrival.name %>
+            </button>
+            <% if user_signed_in? and current_user.email =="justfish@gmail.com" %>
+              <%= link_to 'Delete', main_newarrival_path(@main, newarrival), method: :delete, data: { confirm: 'Are you sure?' }, :class => "dltbtn" %>
+            <% end %>
+
+            <%= image_tag('new.png', class: :newimg) %>
+          </div>
+        <% end %>
+      <% end %>
+  <% end %>
+  <hr />
+
+</fieldset>
+  
+  <div style="padding: 0.3vw 0 0.4vw 0">
+    <%= button_to 'Back to Main page', root_path, :method => "get", :class => "createbtn" %>
+  </div>
+  <%= button_to 'HOME', root_path, :method => "get", :class => "homebtn" %>
+  <%= button_to 'CATEGORIES', categories_path, :method => "get", :class => "catbtn" %>
+<br>
+</div>
+

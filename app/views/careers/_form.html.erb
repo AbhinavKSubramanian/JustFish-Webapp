@@ -1,11 +1,12 @@
-<fieldset class="catwrap">
+<div class="catwrap" style="position: relative; min-height: 100vh">
+<fieldset style="width: 95%; margin: auto; margin-bottom: 3vw">
 	<legend class="legend">NEW CAREER INFO</legend>
 	<div class="newcat">
 		<%= form_with(model: @career, local: true) do |form| %>
 			<div>
 				<%= form.text_field :career_name, :placeholder => "ENTER NEW CAREER NAME HERE", :class => "pdtnametxt" %>
 			</div>
-
+			<br>
 			<div>
 				<%= form.text_field :career_descp, :placeholder => "ENTER NEW CAREER DESCRIPTION HERE", :class => "pdtdescptxt"%>
 			</div>
@@ -19,3 +20,4 @@
 		</div>
 	</div>
 </fieldset>
+</div>

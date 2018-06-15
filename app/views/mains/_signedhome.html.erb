@@ -5,35 +5,39 @@
 
 <div class="wrap intro">
 	<div class="slideshow-container">
-      <%= button_to current_user.email, edit_user_registration_path, :method => "get", :class => "currentmail" %>
-      <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => "login"  %>
-    	<div class="logo fade0">
-        	<img src="/assets/jf1.jpg" style="width:100%" >
-    	</div>
-    	<div class="logo fade0">
-        	<img src="/assets/jf2.jpg" style="width:100%" >
-    	</div>
-    	<div class="logo fade0">
-        	<img src="/assets/jf3.jpg" style="width:100%" >
-    	</div>
-    </div>
+    <%= button_to "LOGOUT", destroy_user_session_path, method: :delete, :class => "createbtn", :style => "width: 10%; font-size: 1.5vw; position: absolute; right: 0.25vw; top: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
+    <%= button_to current_user.email, edit_user_registration_path, :method => "get", :class => "createbtn", :style => "width: 22%; font-size: 1.5vw; position: absolute; right: 10.25vw; top: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
+    <%= button_to "NEW BACKGROUND", new_main_background_path(@main), :method => "get", :class => "createbtn", :style => "width: 16%; font-size: 1.5vw; position: absolute; right: 0.25vw; bottom: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
+    <%= button_to "ALL BACKGROUNDS",main_backgrounds_path(@main), :method => "get", :class => "createbtn", :style => "width: 16%; font-size: 1.5vw; position: absolute; right: 16.25vw; bottom: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
+    <% if @main.backgrounds.blank? %>
+      <img src="/assets/f1.png" style="width:100%; height: 45vw; border: 1px solid black; background: black" >
+    <% else %>
+      <% @main.backgrounds.shuffle.each do |background| %>
+        <div class="logo fade0">
+          <img src="/assets/f1.png" style="width:100%; height: 45vw; border: 1px solid black; background-image: url('<%= background.backgroundimg.url %>');background-size: cover;background-position: center;background-repeat: no-repeat" >
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <!-- IMAGE SLIDER -->
 
 <div class="wrap imgshow">
   <div class="slideshow-container">
-    <div class="mySlides fade">
-        <img src="/assets/j1.jpg" style="width:100%" >
-    </div>
-
-    <div class="mySlides fade">
-      <img src="/assets/j2.jpg" style="width:100%" >
-    </div>
-
-    <div class="mySlides fade">
-      <img src="/assets/j3.jpg" style="width:100%" >
-    </div>
+    <%= button_to "NEW IMAGE", new_main_gallery_path(@main), :method => "get", :class => "createbtn", :style => "width: 16%; font-size: 1.5vw; position: absolute; right: 0.25vw; bottom: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
+    <%= button_to "ALL IMAGES",main_galleries_path(@main), :method => "get", :class => "createbtn", :style => "width: 16%; font-size: 1.5vw; position: absolute; right: 16.25vw; bottom: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
+    <% if @main.galleries.blank? %>
+      <div class="mySlides fade">
+        <img src="/assets/j1.jpg" style="object-fit: cover; width:100%; height: 55vw; border: 1px solid black" >
+      </div>
+    <% else %>
+      <% @main.galleries.each do |gallery| %>
+        <div class="mySlides fade">
+          <%= image_tag gallery.galleryimg.url, :style => "object-fit: cover; width:100%; height: 55vw; border: 1px solid black" %>
+        </div>
+      <% end %>
+    <% end %>
 
 <!-- Side buttons to change image -->
 
@@ -122,10 +126,8 @@
                     <div class="about">
                       <%= about.data %>
                     </div>
-                    <span class="aboutdelete">
                       <%= button_to 'Delete', [about.main, about], 
                           method: :delete, data: { confirm: 'Are you sure?' }, :class => "dltbtn" %>  
-                    </span>
                   </th>
                 </tr>
               <% end %>
@@ -136,25 +138,31 @@
       <td>
 
         <!-- NEW ARRIVALS COLUMN -->
-
         <table class="inner">
-          <% @main.newarrivals.each do |newarrival| %>
-            <div class="slideshow-container">
-              <div class="newarrival fade">       
-                <span class="factsandarrivalsheading">
-                  <%= newarrival.name %>
-                </span>
-                <span class="factsandarrivals">
-                  <%= newarrival.details %>
-                </span>
-                <span class="factsandarrivals"><%= button_to 'Delete', [newarrival.main, newarrival], method: :delete, data: { confirm: 'Are you sure?' }, :class => "dltbtn" %>
-                </span>
-                <span><a class="prev1" onclick="plusarrival(-1)">&#10094;</a>
-                      <a class="next1" onclick="plusarrival(1)">&#10095;</a>
-                </span>
-              </div>
-            </div>
-          <% end %>
+          <div class="slideshow-container">
+            <% @main.newarrivals.each do |newarrival| %>
+              <%= link_to main_newarrival_path(@main, newarrival) do %>
+                <div class="newarrival fade">
+                  <span class="factsandarrivals" style="width: 83%; padding: 0.3vw; border: 0.12vw solid black; border-radius: 0.5vw">
+                    <%= image_tag(newarrival.newarrivalimg.url, :class => "productimg3") %>
+                  </span>  
+                  <span>
+                  <button class="factsandarrivalsheading">
+                    <%= newarrival.name %>
+                  </button>
+                  <%= button_to 'Delete', [newarrival.main, newarrival], 
+                          method: :delete, data: { confirm: 'Are you sure?' }, :class => "dltbtn", :style => "margin-top: 0.5vw;" %>
+                </div>
+                <br>
+                <br>
+                <%= button_to "ALL NEW ARRIVALS", main_newarrivals_path(@main), :method => "get", :class => "createbtn", :style => "width: 50%; font-size: 1.5vw; position: absolute; right: 0.25vw; bottom: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
+              <% end %>
+              <span>
+                <a class="prev1" onclick="plusarrival(-1)" style="text-shadow: none; font-size: 1.2vw">&#10094;</a>
+                <a class="next1" onclick="plusarrival(1)" style="text-shadow: none; font-size: 1.2vw">&#10095;</a>
+              </span>
+            <% end %>
+          </div>
         </table>
       </td>
     </tr>
@@ -188,23 +196,27 @@
     </tr>
   </table>
   <br>
-  <div class="category2">
+  <div class="category2" style="margin-bottom: 4vw; position: relative;">
         <% @categories = Category.all %>
         <div class="categorylogin">
           <% @categories.each do |category| %>
-            <span class="a123">
+            <% if category.catimg? %>
+            <div class="a123" style="background-image: url('<%= category.catimg.url %>');background-size: cover;background-repeat: no-repeat">
+            <% else %>
+            <div class="a123">
+            <% end %>
               <%= button_to category.catname, category_path(category), :method => "get", :class => "btncls" %>
-            </span>
+            </div>
           <% end %>
         </div>
-            <span class="a123">
-              <%= button_to "Create new Category", new_category_path, :method => "get", :class => "btncls1" %>
-            </span>        
   </div>
+  <%= button_to "CREATE NEW CATEGORY", new_category_path, :method => "get", :class => "createbtn", :style => "width: 19%; font-size: 1.5vw; position: absolute; right: 16.25vw; bottom: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %> 
+        <%= button_to "ALL PRODUCTS", products_path, :method => "get", :class => "createbtn", :style => "width: 16%; font-size: 1.5vw; position: absolute; right: 0.25vw; bottom: 0.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
+</div>
 
 <!-- BOTTOM SET - CONTACTS, LOCATION, CAREERS -->
 
-  <div class="wrap bottom">
+  <div class="wrap bottom" style="position: relative; min-height: 36vw">
   <br>
   <table class="bottomtable">
     <tr>
@@ -241,7 +253,7 @@
           <%= image_tag("mapsymbol.png", class: :contactset) %>
           <%= simple_format @main.address %>
         </div>
-        <div class="btmcontents"><%= button_to 'Edit Contact Info', edit_main_path(@main), :method => "get", :class => "createbtn" %></div>
+        <%= button_to "EDIT CONTACT INFO", edit_main_path(@main), :method => "get", :class => "createbtn", :style => "width: 17%; font-size: 1.5vw; position: absolute; left: 7.7vw; bottom: 3.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none" %>
       </td>
 
       <!-- MAP -->
@@ -289,17 +301,12 @@
       
       </div>
       <br>
-      <% career = Career.new %>
-      <div class="btmcontents"><%= button_to 'Create Career Info', new_career_path, :method => "get", :class => "createbtn" %></div>
-   </td>
- </tr>
+    </td>
+    </tr>
    </table>
-   <br>
-  <br>
-  <br>
+  <% career = Career.new %>
+  <%= button_to "CREATE CAREER INFO", new_career_path, :method => "get", :class => "createbtn", :style => "width: 17%; font-size: 1.5vw; position: absolute; right: 15.25vw; bottom: 3.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %> 
+  <%= button_to "ALL CAREERS", careers_path, :method => "get", :class => "createbtn", :style => "width: 15%; font-size: 1.5vw; position: absolute; right: 0.25vw; bottom: 3.25vw; border: 0.2vw solid black; background: white; color: red; text-shadow: none;" %>
   </div>
-
-</div>
-
 <% end %>
 <% end %>

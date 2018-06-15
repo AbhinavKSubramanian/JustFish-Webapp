@@ -23,56 +23,66 @@ table.categories th {
 .category {
 	font-family: 'Viga';
 	width: 100%;
-	word-wrap: break-word;
+	
 }
 
 .categorylogin {
   font-family: 'Viga';
   width: 100%;
-  word-wrap: break-word;
 }
 
 .a123 {
 	display: inline-block;
-  padding: 0.5vw 0 0.5vw 0;
-	width: 22.5%;
-	margin: auto;
+  padding: 0;
+  margin-top: 0.5vw;
+	width: 22.3%;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  background: rgba(100, 100, 100, 0.7);
 }
 
 
 .btncls {
 	width: 100%;
-	border: none;
-	border: 1px solid lightgray;
+  border: none;
+	background: inherit;
 	border-radius: 4px;
-	padding: 4vw 0.1vw 4vw 0.1vw;
-	background: none;
+	padding: 4.6vw 0.1vw 4.6vw 0.1vw;
 	font-family: 'Viga';
-	font-size: 2vw;
-	color: white;
+	font-size: 2.2vw;
+  font-weight: bold;
+  color: black;
+  text-shadow: 1.5px 0 white, 0 1.5px white, -1.5px 0 white, 0 -1.5px white, 0 0 8px white;
 	text-decoration: none;
-	text-shadow: 1px 0 blue, 0 1px blue, -1px 0 blue, 0 -1px blue, 0 0 4px blue;
-	text-transform: uppercase;
+  text-transform: uppercase;
+}
+
+.a123:hover {
+  border: 2px solid orange;
+}
+
+.a123:active {
+  transform: translate(0.2vw, 0.2vw);
 }
 
 .btncls:hover {
-	border: 1px solid gold;
-	background: rgba(100, 100, 100, 0.8);
-	cursor: pointer;
+  color: white;
+  text-shadow: 1px 0 black, 0 1px black, -1px 0 black, 0 -1px black, 0 0 8px black; 
+  background: rgba(20, 20, 20, 0.5);
+  cursor: pointer;
 }
+
 
 .btncls1 {
   width: 100%;
-  border: none;
-  border: 1px solid lightgray;
-  border-radius: 4px;
+  border: none;  border-radius: 4px;
   padding: 1vw 0.1vw 1vw 0.1vw;
   background: none;
   font-family: 'Viga';
   font-size: 1.8vw;
   color: white;
   text-decoration: none;
-  text-shadow: 1px 0 red, 0 1px red, -1px 0 red, 0 -1px red, 0 0 4px red;
+  text-shadow: 1px 0 black, 0 1px black, -1px 0 black, 0 -1px black, 0 0 8px red;
   text-transform: uppercase;
 }
 
@@ -131,15 +141,114 @@ table.categories th {
 .dot1 {
   cursor: pointer;
   height: 1vw;
-  width: 2vw;
+  width: 1vw;
   background-color: rgba(20, 20, 20, 0.5);
   border-radius: 8px;
   display: inline-block;
-  padding: 0 2vw 0 1vw;
-  margin-top: 4px;
+  padding: 0 1.5vw 0 1vw;
+  margin-top: 1vw;
   transition: background-color 0.6s ease;
 }
 
+
 .active1, .dot1:hover {
   background-color: white;
+}
+
+.categoryindex {
+  display:inline-block; 
+  width: 24%; 
+  border: 0.1vw solid crimson; 
+  padding: 0.5vw 0.5vw 0.5vw 0.5vw; 
+  vertical-align: top; 
+  margin: 1vw 0.25vw 0.5vw 0.25vw; 
+  border-radius: 4px; 
+  background: rgb(150,150,150); 
+  box-shadow: 0.3vw 0.3vw black;
+}
+
+.categoryindex:hover {
+  background: rgb(60,60,60);
+}
+
+.categoryindex:active {
+  box-shadow: 0.1vw 0.1vw black;
+  transform: translate(0.2vw,0.2vw);
+}
+.categoryindex:hover .productimg1{
+  opacity: 0.7;
+}
+
+.categoryindex:hover .pdtnamebtn{
+  background: gold;
+}
+
+
+.categoryproducts {
+  display:inline-block; 
+  width: 24%; 
+  border: none; 
+  padding: 0.5vw 0.5vw 0.5vw 0.5vw; 
+  vertical-align: top; 
+  margin: 1vw 0.25vw 1vw 0.25vw; 
+  border-radius: 4px; 
+  box-shadow: 0.4vw 0.4vw darkred;
+  background: rgb(40,40,40);
+}
+
+.categoryproducts:hover {
+  background: lightcyan;
+}
+
+.categoryproducts:active {
+  box-shadow: 0.1vw 0.1vw black;
+  transform: translate(0.2vw,0.2vw);
+}
+.categoryproducts:hover .productimg1{
+  opacity: 0.7;
+}
+
+.categoryproducts:hover .pdtnamebtn{
+  background: rgb(40,40,40);
+  color: white;
+}
+
+.catbtn {
+  position: absolute;
+  top: 0.09vw;
+  right: 2vw;
+  color: darkblue;
+  padding: 0 2vw 0 1vw;
+  width: auto;
+  font-family: 'Fresca';
+  font-size: 2.1vw;
+  font-weight: bold;
+  border:none;
+  border-left: 0.2vw solid black;
+  cursor: pointer;
+  background: none;
+}
+
+.homebtn {
+  position: absolute;
+  top: 0.09vw;
+  right: 14vw;
+  padding: 0 2vw 0 1vw;
+  width: auto;
+  font-family: 'Fresca';
+  font-size: 2.1vw;
+  font-weight: bold;
+  border:none;
+  color: darkblue;
+  border-left: 0.2vw solid black;
+  cursor: pointer;
+  background: none;
+}
+
+.catbtn:hover, .homebtn:hover {
+  background: gray;
+}
+
+.catbtn:active, .homebtn:active {
+  transform: translate(-0.2vw, 0.2vw);
 }

@@ -8,35 +8,34 @@
 
 <div class="wrap intro">
 	<div class="slideshow-container">
-      <%= button_to "Log in",new_user_session_path, :method => "get", :class => "login"  %>
-    </div>
-    	<div class="logo fade0">
-        	<img src="/assets/jf1.jpg" style="width:100%" >
-    	</div>
-    	<div class="logo fade0">
-        	<img src="/assets/jf2.jpg" style="width:100%" >
-    	</div>
-    	<div class="logo fade0">
-        	<img src="/assets/jf3.jpg" style="width:100%" >
-    	</div>
-    </div>
+    <% if @main.backgrounds.blank? %>
+      <img src="/assets/f1.png" style="width:100%; height: 45vw; border: 1px solid black; background: black" >
+    <% else %>
+      <% @main.backgrounds.shuffle.each do |background| %>
+        <div class="logo fade0">
+          <img src="/assets/f1.png" style="width:100%; height: 45vw; border: 1px solid black; background-image: url('<%= background.backgroundimg.url %>');background-size: cover;background-position: center;background-repeat: no-repeat" >
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
 
 <!-- IMAGE SLIDER -->
 
 <div class="wrap imgshow">
   <div class="slideshow-container">
+    <% if @main.galleries.blank? %>
+      <div class="mySlides fade">
+        <img src="/assets/j1.jpg" style="object-fit: cover; width:100%; height: 55vw; border: 1px solid black" >
+      </div>
+    <% else %>
+    <% @main.galleries.each do |gallery| %>
     <div class="mySlides fade">
-        <img src="/assets/j1.jpg" style="width:100%" >
+        <%= image_tag gallery.galleryimg.url, :style => "object-fit: cover; width:100%; height: 55vw; border: 1px solid black" %>
     </div>
-
-    <div class="mySlides fade">
-      <img src="/assets/j2.jpg" style="width:100%" >
-    </div>
-
-    <div class="mySlides fade">
-      <img src="/assets/j3.jpg" style="width:100%" >
-    </div>
+    <% end %>
+    <% end %>
 
 <!-- Side buttons to change image -->
 
@@ -89,7 +88,7 @@
             <th>
               <%@main.facts.each do |fact| %> 
                 <div class="slideshow-container">
-                  <div class="diduknow fade">
+                  <div class="diduknow fade1">
                     <span class="factsandarrivals">
                       <%= fact.tip %>
                     </span>
@@ -119,7 +118,7 @@
             <% else %>
               <% @main.abouts.each do |about| %>
                 <tr>
-                  <th>     
+                  <th>
                     <div class="about">
                       <%= about.data %>
                     </div>
@@ -135,21 +134,25 @@
         <!-- NEW ARRIVALS COLUMN -->
 
         <table class="inner">
-          <% @main.newarrivals.each do |newarrival| %>
-            <div class="slideshow-container">
-              <div class="newarrival fade">       
-                <span class="factsandarrivalsheading">
-                  <%= newarrival.name %>
-                </span>
-                <span class="factsandarrivals">
-                  <%= newarrival.details %>
-                </span>
-                <span><a class="prev1" onclick="plusarrival(-1)">&#10094;</a>
-                      <a class="next1" onclick="plusarrival(1)">&#10095;</a>
-                </span>
-              </div>
-            </div>
-          <% end %>
+          <div class="slideshow-container">
+            <% @main.newarrivals.each do |newarrival| %>
+              <%= link_to main_newarrival_path(@main, newarrival) do %>
+                <div class="newarrival fade1">
+                  <span class="factsandarrivals" style="width: 83%; padding: 0.3vw; border: 0.12vw solid black; border-radius: 0.5vw">
+                    <%= image_tag(newarrival.newarrivalimg.url, :class => "productimg3") %>
+                  </span>  
+                  <span>
+                  <button class="factsandarrivalsheading">
+                    <%= newarrival.name %>
+                  </button>
+                </div>
+              <% end %>
+              <span>
+                <a class="prev1" onclick="plusarrival(-1)" style="text-shadow: none; font-size: 1.2vw">&#10094;</a>
+                <a class="next1" onclick="plusarrival(1)" style="text-shadow: none; font-size: 1.2vw">&#10095;</a>
+              </span>
+            <% end %>
+          </div>
         </table>
       </td>
     </tr>
@@ -180,8 +183,8 @@
           <div class="category">
           <% end %>
             <% i=i+1 %>
-            <span class="a123">
-            <%= button_to category.catname, category_path(category), :method => "get", :class => "btncls" %>
+            <span class="a123" style="background-image: url('<%= category.catimg.url %>');background-size: cover;background-repeat: no-repeat; background-position: center; box-shadow: 0.3vw 0.3vw black, 0.3vw 0.3vw 0.4vw red; margin: 0.15vw">
+              <%= button_to category.catname, category_path(category), :method => "get", :class => "btncls" %></button>
             </span>
           <% if i%4==0 %>
             <% i=0 %>
@@ -199,12 +202,13 @@
   <% end %> 
   <br>
   <br>
+  <%= button_to 'All Products', products_path, :method => "get", :class => "createbtn", :style => "width: 12%; font-size: 1.3vw; position: absolute; right: 0; bottom: 0; border: none" %>
 </div>
 
 
 <!-- BOTTOM SET - CONTACTS, LOCATION, CAREERS -->
 
-  <div class="wrap bottom">
+  <div class="wrap bottom" style="position: relative; min-height: 33vw">
   <br>
   <table class="bottomtable">
     <tr>
@@ -283,19 +287,19 @@
           <a class="prev2" onclick="pluscareer(-1)">&#10094;</a>
           <a class="next2" onclick="pluscareer(1)">&#10095;</a>
         <% end %>
-
-      <!-- PROVIDING LINK TO CREATE NEW CAREER INFO -->
-      
-      </div>
-      <br>
-   </td>
- </tr>
-   </table>
-   <br>
-  <br>
-  <br>
-  </div>
-
+        
+        </div>  
+        <br>
+      </td>
+    </tr>
+  </table>
+  <%= button_to 'All CAREERS', careers_path, :method => "get", :class => "createbtn", :style => "width: 12%; font-size: 1.3vw; position: absolute; right: 0; bottom: 0.25vw; border: none" %>
 </div>
-
+<div class="wrap bottom" style="min-height: 7vw; padding: 1vw; position: relative;background-position: center">
+  <div style="text-align: left; font-family: 'Fresca'; width: 33%; margin: 0 auto; float: left"><b style="font-size: 2vw; text-shadow: 0 0 0.02vw blue">CREDITS:</b><br> HNYJNY & ABNVKS</div>
+  <div style="font-family: 'Fresca'; width: 33%; display: inline-block; margin: 0 auto; float: left"><b style="font-size: 2vw; text-shadow: 0 0 0.02vw blue">OUR PARTNERS:</b><br> COCHIN AQUARIUM</div>
+  <%= link_to new_user_session_path do |f| %>
+  <div class="btmlogin">LOG IN</div>
+</div>
+  <% end %>
 <% end %>

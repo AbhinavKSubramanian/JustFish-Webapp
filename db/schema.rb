@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_181825) do
+ActiveRecord::Schema.define(version: 2018_06_13_190353) do
 
   create_table "abouts", force: :cascade do |t|
     t.integer "sl"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2018_05_29_181825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["main_id"], name: "index_abouts_on_main_id"
+  end
+
+  create_table "backgrounds", force: :cascade do |t|
+    t.integer "main_id"
+    t.string "backgroundimg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_id"], name: "index_backgrounds_on_main_id"
   end
 
   create_table "careers", force: :cascade do |t|
@@ -32,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_05_29_181825) do
     t.string "catname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "catimg"
   end
 
   create_table "facts", force: :cascade do |t|
@@ -40,6 +49,14 @@ ActiveRecord::Schema.define(version: 2018_05_29_181825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["main_id"], name: "index_facts_on_main_id"
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.integer "main_id"
+    t.string "galleryimg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["main_id"], name: "index_galleries_on_main_id"
   end
 
   create_table "mains", force: :cascade do |t|
@@ -58,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_05_29_181825) do
     t.integer "main_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "newarrivalimg"
     t.index ["main_id"], name: "index_newarrivals_on_main_id"
   end
 
@@ -67,6 +85,7 @@ ActiveRecord::Schema.define(version: 2018_05_29_181825) do
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pdtimg"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

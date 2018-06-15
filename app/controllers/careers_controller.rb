@@ -1,7 +1,8 @@
 class CareersController < ApplicationController
-before_action :authenticate_user!, except: [:show]
-def index
-	 @careers = Career.all
+before_action :authenticate_user!, except: [:show, :index]
+
+  def index
+	  @careers = Career.all
   end
 
   def show
@@ -37,7 +38,6 @@ def index
   def destroy
     @career = Career.find(params[:id])
     @career.destroy
- 
     redirect_to root_path
   end
 

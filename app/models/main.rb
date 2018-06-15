@@ -2,6 +2,8 @@ class Main < ApplicationRecord
 has_many :facts, dependent: :destroy
 has_many :abouts, dependent: :destroy
 has_many :newarrivals, dependent: :destroy
+has_many :backgrounds, dependent: :destroy
+has_many :galleries, dependent: :destroy
 
 mains = Main.all
 i=0

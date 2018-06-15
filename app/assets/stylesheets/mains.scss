@@ -14,19 +14,38 @@
     font-size: 1.5vw;
 }
 
+.backg {
+    background-image: url('back.jpg');
+    background-size: cover;
+}
+
+.backg2 {
+    background-image: url('fish.jpg');
+    background-size: cover;
+}
+
+.backg3 {
+    background-image: url('food.jpg');
+    background-size: cover;
+}
+
 .wrap.intro {
     background-image: url('whitebg.jpg');
     position: relative;
+    height: 45vw;
 }
 
 .wrap.imgshow {
     background-image: url('greybg.jpg');
     display: block;
+   	height: 55vw;
 }  
 
 .wrap.mid {
+	display: block;
     background-image: url('whitebg.jpg');
     text-align: center;
+    min-height: 36vw;
 }
 
 .wrap.prod {
@@ -34,6 +53,8 @@
     text-align: center;
     font-size: 2vw;
     color: white;
+    position: relative;
+    min-height: 32vw;
 }
 
 table.main {
@@ -46,6 +67,7 @@ table.main th {
     width: 33.33%;
     text-align: center;
     font-family:'Viga';
+    padding: 1vw 0 1vw 0;
     color: black;
     border-right: 1px solid black;
     text-shadow: -2px 0 white,0 -2px white,2px 0 white,0 2px white,0 0 14px red;
@@ -55,6 +77,7 @@ table.main th {
 table.main td {
 	font-family: 'Fresca';
     width: 33.33%;
+    padding: 2vw 0 2vw 0;
 }
 
 table.inner {
@@ -78,24 +101,28 @@ table.inner td {
 .factsandarrivals {
     font-family: 'Fresca';
     text-align: center;
-    width: 90%;
+    width: 100%;
     margin: auto;
     display:block;
     text-shadow: -1px 0 white,0 -1px white,1px 0 white,0 1px white, 0 0 8px purple;
     font-size: 2.1vw;
     font-weight: bold;
+    padding: 2vw 0 0 0;
 }
 
 .factsandarrivalsheading {
     font-family: 'Viga';
     text-align: center;
-    width: 90%;
+    width: 100%;
+    padding: 0;
+    background: none;
+    cursor: pointer;
     margin: auto;
-    display:block;
     text-shadow: -1px 0 white,0 -1px white,1px 0 white,0 1px white, 0 0 10px orange;
     text-transform: uppercase;
-    font-size: 2.4vw;
+    font-size: 2vw;
     font-weight: bold;
+    border-radius: 0.5vw;
 }
 
 .dltbtn {
@@ -201,4 +228,22 @@ table.bottomtable td {
 
 .addressfield:hover {
     background: lightyellow;
+}
+
+.btmlogin {
+    position: absolute;
+    right: 3vw;
+    color: black; 
+    font-size: 2vw; 
+    vertical-align: top; 
+    font-weight: bold; 
+    text-align: right; 
+    font-family: 'Fresca';
+    display: inline-block; 
+    margin: 0 auto; 
+    text-shadow: 0 0 0.02vw blue;   
+}
+
+.btmlogin:hover {
+    border-bottom: 0.1vw solid black;
 }

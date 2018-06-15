@@ -3,7 +3,31 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .newarrival {
-	width: 100%;
+	width: 85%;
 	padding: 1vw 1vw 1vw 1vw;
 	margin: auto;
+}
+
+.newarrival:hover .factsandarrivalsheading {
+	background: rgba(255,165,43, 0.6);
+}
+
+.newarrival:hover .factsandarrivals {
+	background: none;
+	background: rgba(255,165,43, 0.6	);
+}
+
+.factsandarrivals:active {
+    transform: translateY(0.2vw);
+}
+
+.factsandarrivalsheading:active {
+    transform: translateY(0.2vw);
+}
+
+.newimg {
+	position: absolute;
+	top: -2.5vw;
+	left: -2.5vw;
+	width: 45%;
 }

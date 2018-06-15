@@ -1,0 +1,14 @@
+<%= form_with(model: [ @main, @main.galleries.build ], local: true) do |form| %>
+<div class="catwrap" style="position: relative; min-height: 100vh">
+	<fieldset style="margin: 4vw">
+		<legend class="prodlegend" style="font-size: 4vw; margin-left: 2vw">NEW GALLERY IMAGE</legend>
+		<div style="margin: 2vw; margin-bottom: 4vw">
+			<%= form.file_field :galleryimg, :class => "pdtnametxt" %>
+		</div>
+
+		<div>
+  			<%= form.submit :SAVE, :class => "createbtn" %>
+		</div>
+	</fieldset>
+</div>
+<% end %>

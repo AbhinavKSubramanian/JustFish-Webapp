@@ -1,11 +1,21 @@
-<table class="inner">
-  <% @categories.each do |category| %>
-    <div class="slideshow-container">
-      <div class="category fade">       
-        <span class="factsandarrivals">
-          <%= category.catname %>
-        </span>
-      </div>
-    </div>
-  <% end %>
-</table>
+<div class="catwrap" style="position: relative">
+<fieldset>
+	<legend class="prodlegend" style="font-size: 4vw; margin-left: 2vw">ALL CATEGORIES</legend>
+		<% @categories.shuffle.each do |category| %>
+				<%= link_to category_path(category) do %>
+				<div class="categoryindex">
+					<div style="padding-bottom: 0.5vw; min-height: 13.1vw"><%= image_tag(category.catimg.url, class: :productimg1) %></div>
+  				<button class="pdtnamebtn"><%= category.catname %></button>
+          <% if user_signed_in? and current_user.email =="justfish@gmail.com" %>
+            <%= link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, :class => "dltbtn" %>
+          <% end %>
+  			</div>
+  			<% end %>
+		<% end %>
+</fieldset>
+<div style="padding: 0.3vw">
+			<%= button_to 'Back to Main page', root_path, :method => "get", :class => "createbtn" %>
+		</div>
+	<%= button_to 'HOME', root_path, :method => "get", :class => "homebtn" %>
+    <%= button_to 'PRODUCTS', products_path, :method => "get", :class => "catbtn" %>
+</div>

@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-before_action :authenticate_user!, except: [:show]
+before_action :authenticate_user!, except: [:show, :index]
 
 def index
 	@categories = Category.all
@@ -44,7 +44,7 @@ end
 
   private
     def category_params
-      params.require(:category).permit(:catname)
+      params.require(:category).permit(:catname, :catimg, :catimg)
     end
 
 end

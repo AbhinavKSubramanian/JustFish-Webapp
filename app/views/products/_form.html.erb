@@ -1,14 +1,26 @@
-
 <br>
+<fieldset class="newprod">
+	<legend class="prodlegend">NEW PRODUCT DETAILS</legend>
+	<br>
 <%= form_with(model: [ @category, @category.products.build ], local: true) do |form| %>
 
-<div><%= form.text_field :pdtname, :placeholder => "ENTER NEW PRODUCT HERE", :class => "pdtnametxt" %>
-</div>
+	<div>
+		<%= form.text_field :pdtname, :placeholder => "ENTER NEW PRODUCT HERE", :class => "pdtnametxt" %>
+	</div>
+	<br>
+	<div>
+		<%= form.text_area :pdtdescp,:placeholder => "ENTER DETAILS HERE", :class => "pdtdescptxt" %>
+	</div>
+	<br>
+	<div>
+		<%= form.file_field :pdtimg, :class => "pdtnametxt" %>
+	</div>
+	<br>
+	<div>
+		<%= form.submit :SAVE, :class => "createbtn" %>	
+	</div>
 
-<div>
-	<%= form.text_area :pdtdescp,:placeholder => "ENTER DETAILS HERE", :class => "pdtdescptxt" %>
-</div>
-<div><%= form.submit :SAVE, :class => "createbtn" %></div>
 <% end %>
+</fieldset>
 <br>
 <br>

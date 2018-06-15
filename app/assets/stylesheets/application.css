@@ -19,19 +19,38 @@ body {font-family: Verdana, sans-serif; margin:0}
 
 
 .fade0 {
-  -webkit-animation-name: ease;
+  -webkit-animation-name: fade0;
+  -webkit-animation-duration: 0.4s;
+  animation-name: fade0;
+  animation-duration: 0.4s;
+  transition: 2s ease-in-out;
+}
+
+@-webkit-keyframes fade0 {
+   from {transform: translate(-50vw,0);} 
+  to {transform: translate(0, 0);}
+}
+
+@keyframes fade0 {
+  from {transform: translate(-50vw,0);} 
+  to {transform: translate(0, 0);}
+}
+
+
+.fade1 {
+  -webkit-animation-name: fade1;
   -webkit-animation-duration: 3s;
-  animation-name: ease;
+  animation-name: fade1;
   animation-duration: 3s;
   transition: 0.6s ease;
 }
 
-@-webkit-keyframes fade0 {
+@-webkit-keyframes fade1 {
   from {opacity: 0.6} 
   to {opacity: 1}
 }
 
-@keyframes fade0 {
+@keyframes fade1 {
   from {opacity: 0.8} 
   to {opacity: 1}
 }
@@ -48,7 +67,10 @@ body {font-family: Verdana, sans-serif; margin:0}
 .logo {display: none}
 img {vertical-align: middle;}
 
-.mySlides {display: none}
+.mySlides {
+  width: 100%;
+  height: 55vw;
+  display: none;}
 img {vertical-align: middle;}
 
 .diduknow {display: none;}
@@ -125,23 +147,19 @@ img {vertical-align: middle;}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 0.5s;
   animation-name: fade;
-  animation-duration: 2s;
-  -webkit-animation-name: fade-out;
-  -webkit-animation-duration: 2s;
-  animation-name: fade;
-  animation-duration: 2s;
+  animation-duration: 0.5s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: 0.4} 
-  to {opacity: 1}
+  from {transform: translate(100vw,0);} 
+  to {transform: translate(0, 0);}
 }
 
 @keyframes fade {
-  from {opacity: 0.4} 
-  to {opacity: 1}
+  from {transform: translate(100vw,0);} 
+  to {transform: translate(0, 0);}
 }
 
 /* On smaller screens, decrease text size */

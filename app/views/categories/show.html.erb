@@ -1,29 +1,19 @@
-<div class="catwrap">
-	<fieldset style>
+<div class="catwrap" style="position: relative">
+	<fieldset style="margin-top: 2vw">
 		<legend class="legend">
   			LIST OF <%= @category.catname %>
   		</legend>
-  		<ol class="d">
 		<% @category.products.each do |product| %>
-			<div class="productsrow">
-				<li><div class="productname">
-					<%= product.pdtname %>
-				</div>
-				<div class="productdescp">
-					<%= product.pdtdescp %>
-				</div>
-				<% if user_signed_in? %>
-				<% if current_user.email =="justfish@gmail.com" %>
-				<%= link_to 'Delete', [product.category, product],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-               <% end %>
-               <% end %>
-				</li>
-			</div>
-			<br>
+			<%= link_to category_product_path(@category, product) do %>
+				<div class="categoryproducts">
+  					<div style="padding-bottom: 0.5vw; min-height: 13.1vw"><%= image_tag(product.pdtimg.url, class: :productimg1) %></div>
+    				<button style="width: 100%" class="pdtnamebtn"><%= product.pdtname %></button>
+    				<% if user_signed_in? and current_user.email =="justfish@gmail.com" %>
+						<%= link_to 'Delete', [product.category, product], method: :delete, data: { confirm: 'Are you sure?' }, :class => "dltbtn" %>
+               		<% end %>
+    			</div>
+    		<% end %>	
 		<% end %>
-		</ol>
 	</fieldset>
 
 	<div class="productback">
@@ -43,4 +33,7 @@
 	</div>
 	<% end %>
 	<% end %> 
+	<%= button_to 'HOME', root_path, :method => "get", :class => "homebtn", :style => "right: 23vw" %>
+    <%= button_to 'CATEGORIES', categories_path, :method => "get", :class => "catbtn", :style => "right: 0vw" %>
+    <%= button_to 'PRODUCTS', products_path, :method => "get", :class => "catbtn", :style => "right: 12vw" %>
 </div>
