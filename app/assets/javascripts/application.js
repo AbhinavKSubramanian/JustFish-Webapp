@@ -38,7 +38,7 @@ var careerlength = document.getElementsByClassName("career1");
 var categoryindex=0;
 var categorylength = document.getElementsByClassName("category");
 
-window.onload = function() {
+$('document').ready(function(){
 
 showSlides();
 
@@ -134,8 +134,7 @@ function categoryshow() {
 }
 
 
-};
-
+});
 
 function plusSlides(n) {
   showSlides1(slideIndex += n);
