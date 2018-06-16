@@ -14,13 +14,13 @@
 //= require jquery_ujs
 //= require popper
 //= require activestorage
-
+//= require_tree .
 
 var slideIndex=0;
 var slides = document.getElementsByClassName("mySlides");
 var dots = document.getElementsByClassName("dot");
 var dots1 = document.getElementsByClassName("dot1");
-
+alert('WORKING');
 var logoindex = 0;
 var logolength = document.getElementsByClassName("logo");
 
@@ -40,7 +40,7 @@ var categorylength = document.getElementsByClassName("category");
 
 
 $('document').ready(function(){
-alert(slides.length);
+
 showSlides();
 
 function showSlides() {
