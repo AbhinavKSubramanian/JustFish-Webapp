@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery.flexslider-min
 //= require jquery_ujs
 //= require popper
 //= require activestorage
-//= require_tree .
+
 
 var slideIndex=0;
 var slides = document.getElementsByClassName("mySlides");
@@ -39,6 +40,7 @@ var categoryindex=0;
 var categorylength = document.getElementsByClassName("category");
 
 $('document').ready(function(){
+alert(slides.length);
 
 showSlides();
 
